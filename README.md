@@ -21,6 +21,7 @@ Installation
 ------------
 
 Download and extract the included files into your directory of choice. 
+
 OpenIOC-to-CybOX requires Python 2.X. It was developed using Python 2.7, and may work under Python 2.6. It is not compatible with Python 3.
 
 ### Dependencies 
@@ -33,7 +34,7 @@ You can install the dependencies using pip:
 
 **NOTE**: Installing LXML (which python-cybox depends on) on Ubuntu requrires the
 python-dev, libxml2-dev, and libxslt1-dev packages to be installed. 
-Follow the link for instructions on installing python-cybox and LXML on Windows
+Follow the link for instructions on installing python-cybox and LXML on Windows.
 
 
 Usage
@@ -50,6 +51,13 @@ Usage
       -v: Verbose output mode. Lists any skipped indicator items and also prints traceback for errors.
 
 
+### Example files
+
+OpenIOC-to-CybOX comes with example input and output files. You can use these to see an example of the program's output,
+or to verify that you have installed to program correctly:
+
+    $ python openioc_to_cybox.py -i example/ioc_input_example.xml -o cybox_output.xml
+    $ diff cybox_output.xml example/cybox_output_example.xml
 
 More information
 ----------------
