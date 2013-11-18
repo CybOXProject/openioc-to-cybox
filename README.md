@@ -28,7 +28,8 @@ OpenIOC-to-CybOX requires Python 2.X. It was developed using Python 2.7, and may
 * [python-cybox](https://pypi.python.org/pypi/cybox) - A Python library for CybOX
 
 You can install the dependencies using pip:
-$ pip install cybox
+
+    $ pip install cybox
 
 **NOTE**: Installing LXML (which python-cybox depends on) on Ubuntu requrires the
 python-dev, libxml2-dev, and libxslt1-dev packages to be installed. 
