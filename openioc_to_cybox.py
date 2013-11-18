@@ -1,9 +1,18 @@
+#!/usr/bin/env python
+
 # Copyright (c) 2013, The MITRE Corporation. All rights reserved.
 # See LICENSE.txt for complete terms.
 
-#OpenIOC to CybOX Translator
-#v0.21 BETA
-#Generates valid CybOX v2.0.1 XML output from OpenIOCs
+'''
+OpenIOC to CybOX Translator
+---------------------------
+
+Generate CybOX XML from OpenIOC XML
+'''
+
+__version__ == "0.21 BETA"
+
+
 import openioc
 import cybox.bindings.cybox_core as cybox_binding
 import cybox.bindings.cybox_common as cybox_common_binding
