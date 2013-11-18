@@ -56,8 +56,8 @@ Usage
 OpenIOC-to-CybOX comes with example input and output files. You can use these to see an example of the program's output,
 or to verify that you have installed to program correctly:
 
-    $ python openioc_to_cybox.py -i example/ioc_input_example.xml -o cybox_output.xml
-    $ diff cybox_output.xml example/cybox_output_example.xml
+    $ python openioc_to_cybox.py -i examples/sample_ioc.in.xml -o cybox_output.xml
+    $ diff cybox_output.xml examples/cybox.out.xml
 
 More information
 ----------------
