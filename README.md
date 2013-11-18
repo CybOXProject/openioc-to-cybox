@@ -1,11 +1,18 @@
-****************************************************
+OpenIOC to CybOX Translator
+===========================
 
-      OpenIOC XML -> CybOX XML Converter Script
+Generate CybOX XML from OpenIOC XML 
 
  Copyright (c) 2013 - The MITRE Corporation
  All rights reserved. See LICENSE.txt for more details.
 
-****************************************************
+
+Version 0.21 BETA
+
+
+ Copyright (c) 2013 - The MITRE Corporation
+ All rights reserved. See LICENSE.txt for more details.
+
 
 BY USING THE OPENIOC TO CYBOX SCRIPT, YOU SIGNIFY YOUR ACCEPTANCE OF THE TERMS AND 
 CONDITIONS OF USE.  IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THE SCRIPT.
