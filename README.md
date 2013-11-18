@@ -11,18 +11,30 @@ Generate CybOX XML from OpenIOC XML
     BY USING THIS PROGRAM, YOU SIGNIFY YOUR ACCEPTANCE OF THE TERMS AND CONDITIONS
     OF USE.  IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THIS PROGRAM.
 
+Overview
+--------
+
+The OpenIOC-to-CybOX program generates CybOX XML output from an input OpenIOC XML file. 
+By default, the program creates a top-level Observable for each OpenIOC IndicatorItem, 
+plus an extra Observable (using an Observable_Composition) that encompasses the Boolean 
+logic for the full indicator by referencing the IndicatorItem-mapped Observables. 
+
+However, using the "-e" flag causes the program to embed the full Observables in the
+nested structure of the Observable_Composition directly, rather than including them by
+reference. This creates a CybOX file which more closely mirrors the appearance of the 
+input OpenIOC file.
 
 Compatible with:
 * [CybOX 2.0.1](http://cybox.mitre.org/language/version2.0.1/)
 * [OpenIOC 1.0](http://schemas.mandiant.com/2010/ioc/ioc.xsd)
-
 
 Installation
 ------------
 
 Download and extract the included files into your directory of choice. 
 
-OpenIOC-to-CybOX requires Python 2.X. It was developed using Python 2.7, and may work under Python 2.6. It is not compatible with Python 3.
+OpenIOC-to-CybOX requires Python 2.X. It was developed using Python 2.7, and may work 
+under Python 2.6. It is not compatible with Python 3.
 
 ### Dependencies 
 
@@ -35,7 +47,6 @@ You can install the dependencies using pip:
 **NOTE**: Installing LXML (which python-cybox depends on) on Ubuntu requrires the
 python-dev, libxml2-dev, and libxslt1-dev packages to be installed. 
 Follow the link for instructions on installing python-cybox and LXML on Windows.
-
 
 Usage
 -----
@@ -50,11 +61,10 @@ Usage
           Observable_Compositions.
       -v: Verbose output mode. Lists any skipped indicator items and also prints traceback for errors.
 
-
 ### Example files
 
-OpenIOC-to-CybOX comes with example input and output files. You can use these to see an example of the program's output,
-or to verify that you have installed to program correctly:
+OpenIOC-to-CybOX comes with example input and output files. You can use these to see an example
+of the program's output, or to verify that you have installed to program correctly:
 
     $ python openioc_to_cybox.py -i examples/sample_ioc.in.xml -o cybox_output.xml
     $ diff cybox_output.xml examples/cybox.out.xml
@@ -64,7 +74,6 @@ Contributing
 
 Bug reports and feature requests are welcome and encouraged. Pull requests are especially appreciated. 
 Feel free to use the issue tracker on GitHub or send an email directly to <cybox@mitre.org>.
-
 
 More information
 ----------------
