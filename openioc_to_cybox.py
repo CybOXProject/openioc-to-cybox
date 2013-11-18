@@ -10,17 +10,19 @@ OpenIOC to CybOX Translator
 Generate CybOX XML from OpenIOC XML
 '''
 
-__version__ == "0.21 BETA"
+__version__ = "0.21 BETA"
 
 
-import openioc
+import os
+import sys
+import traceback
+
 import cybox.bindings.cybox_core as cybox_binding
 import cybox.bindings.cybox_common as cybox_common_binding
 from cybox.utils import NamespaceParser
-import ioc_observable
-import sys
-import os
-import traceback
+
+import openioc
+from openioc import ioc_observable
 
 #Normalize any ids used in the IOC to make the compatible with CybOX
 #This is just in case the normal UUID type is not used
