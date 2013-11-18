@@ -58,6 +58,13 @@ or to verify that you have installed to program correctly:
 
     $ python openioc_to_cybox.py -i examples/sample_ioc.in.xml -o cybox_output.xml
     $ diff cybox_output.xml examples/cybox.out.xml
+    
+Contributing
+------------
+
+Bug reports and feature requests are welcome and encouraged. Pull requests are especially appreciated. 
+Feel free to use the issue tracker on GitHub or send an email directly to <cybox@mitre.org>.
+
 
 More information
 ----------------
