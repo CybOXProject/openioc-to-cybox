@@ -10,16 +10,18 @@ OpenIOC to CybOX Translator
 Generate CybOX XML from OpenIOC XML
 '''
 
-__version__ = "0.21 BETA"
+__version__ = '2.1.0'
 
 
 import os
 import sys
 import traceback
 
+import cybox
+from cybox.core import Observables
+from cybox.utils import Namespace
 import cybox.bindings.cybox_core as cybox_binding
 import cybox.bindings.cybox_common as cybox_common_binding
-from cybox.utils import NamespaceParser
 
 import openioc
 from openioc import ioc_observable
@@ -186,7 +188,7 @@ def generate_cybox(indicators, infilename, embed_observables):
         observable_source_description = cybox_common_binding.StructuredTextType()
         observable_source_description.set_valueOf_('OpenIOC File: ' + os.path.basename(infilename))
         observable_source.set_Description(observable_source_description)
-        indicator_observable.set_Observable_Source(observable_source)
+        indicator_observable.add_Observable_Source(observable_source)
 
         composition = cybox_binding.ObservableCompositionType(operator=indicator.get_operator())
         #Process the indicator, including any embedded indicators
@@ -217,7 +219,7 @@ def usage():
     
 USAGE_TEXT = """
 OpenIOC --> CybOX XML Converter Utility
-v0.21 BETA // Compatible with CybOX v2.0.1
+v%s // Compatible with CybOX v2.1
 
 Usage: python openioc_to_cybox.py <flags> -i <openioc xml file> -o <cybox xml file>
 
@@ -226,7 +228,8 @@ Available Flags:
         If this mode is not specified, the script will create a single Observable at the root level for each Indicator Item
         and then add a separate Observable with the Boolean logic that composes the indicator, via Observable_Compositions.
     -v: Verbose output mode. Lists any skipped indicator items and also prints traceback for errors.
-"""
+""" % (__version__)
+
 obsv_id_base = 0    
 obj_id_base = 0
 
@@ -265,15 +268,13 @@ def main():
             observables = generate_cybox(indicators, infilename, embed_observables)
             
             if observables != None:
-                observables.set_cybox_major_version('2')
-                observables.set_cybox_minor_version('0')
+                observables_api_obj = Observables.from_obj(observables)
+                xml = observables_api_obj.to_xml(namespace_dict={"http://openioc.org/" : "openioc"})
                 
-                outfile = open(outfilename, 'w')
-                outfile.write('<?xml version="1.0" encoding="utf-8"?>\n')
-                nsparser = NamespaceParser(observables.get_Observable())
-                ns_string = '\n xmlns:openioc="http://openioc.org/"' + nsparser.build_namespaces_schemalocations_str()
-                observables.export(outfile, 0, namespacedef_=ns_string)
-
+                with open(outfilename, 'wb') as outfile:
+                    outfile.write('<?xml version="1.0" encoding="utf-8"?>\n')
+                    outfile.write(xml)
+                
                 if verbose_mode:
                     for indicator in skipped_indicators:
                         skipped_id = ''
@@ -298,4 +299,5 @@ def main():
         sys.exit(1)
         
 if __name__ == "__main__":
-    main()    
+    main()
+    
