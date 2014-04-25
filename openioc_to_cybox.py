@@ -219,7 +219,7 @@ def usage():
     
 USAGE_TEXT = """
 OpenIOC --> CybOX XML Converter Utility
-v%s // Compatible with CybOX v2.1
+v%s // Compatible with CybOX v2.1 and OpenIOC v1.0
 
 Usage: python openioc_to_cybox.py <flags> -i <openioc xml file> -o <cybox xml file>
 
@@ -263,6 +263,10 @@ def main():
     if os.path.isfile(infilename):    
         #Parse the OpenIOC file
         indicators = openioc.parse(infilename)
+        #Test to see if the file was parsed correctly
+        if not isinstance(indicators, openioc.IndicatorOfCompromise):
+            print "Error parsing document. Please verify that it represents a valid OpenIOC 1.0 document"
+            sys.exit(0)
         try:
             print 'Generating ' + outfilename + ' from ' + infilename + '...'
             observables = generate_cybox(indicators, infilename, embed_observables)
