@@ -12,7 +12,6 @@ Generate CybOX XML from OpenIOC XML
 Overview
 --------
 
-This project/utility has been deprecated, particularly because Indicators
-fall more closely into the realm of STIX rather than CybOX. As such, please
-see the OpenIOC to STIX utility, which can be found at:
-https://github.com/STIXProject/openioc-to-stix
+This project/utility has been deprecated, because Indicators fall more closely 
+into the realm of STIX rather than CybOX. Instead, please see the OpenIOC to STIX utility, 
+which can be found at: https://github.com/STIXProject/openioc-to-stix
