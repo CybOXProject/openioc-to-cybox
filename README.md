@@ -1,4 +1,4 @@
-OpenIOC to CybOX Translator
+OpenIOC to CybOX Translator (DEPRECATED)
 ===========================
 
 Generate CybOX XML from OpenIOC XML
