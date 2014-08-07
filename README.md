@@ -13,5 +13,6 @@ Overview
 --------
 
 This project/utility has been deprecated, because Indicators fall more closely 
-into the realm of STIX rather than CybOX. Instead, please see the OpenIOC to STIX utility, 
-which can be found at: https://github.com/STIXProject/openioc-to-stix
+into the realm of STIX rather than CybOX. Thus, this utility has been migrated
+over to the OpenIOC to STIX utility, which can be found at: 
+https://github.com/STIXProject/openioc-to-stix
